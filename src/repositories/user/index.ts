@@ -14,8 +14,11 @@ class UserRepository implements UserRepo {
 
   retrieveUsers = async () => await this.ormRepo.find();
 
-  retrieveUserProfile = async (uuid: string) =>
+  retrieveUserById = async (uuid: string) =>
     await this.ormRepo.findOne({ uuid });
+
+  retrieveUserByEmail = async (email: string) =>
+    await this.ormRepo.findOne({ email });
 
   updateUser = async (uuid: string, data: UserUpdateDataInterface) =>
     await this.ormRepo.update({ uuid }, data);
