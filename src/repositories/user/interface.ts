@@ -1,4 +1,5 @@
 import { UpdateResult } from 'typeorm';
+import { User } from '../../entities/User';
 
 interface UserInterface {
   uuid: string;
@@ -18,9 +19,9 @@ interface UserUpdateDataInterface {
 }
 
 interface UserRepo {
-  createUser: (user: UserInterface) => Promise<UserInterface>;
-  retrieveUsers: () => Promise<UserInterface[]>;
-  retrieveUserProfile: (uuid: string) => Promise<UserInterface>;
+  createUser: (user: UserInterface) => Promise<User>;
+  retrieveUsers: () => Promise<User[]>;
+  retrieveUserProfile: (uuid: string) => Promise<User | undefined>;
   updateUser: (
     uuid: string,
     data: UserUpdateDataInterface
