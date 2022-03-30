@@ -6,6 +6,8 @@ declare global {
     interface Request {
       user: User;
       validated: UserInterface;
+      uuid: string;
+      email: string;
     }
   }
 }
