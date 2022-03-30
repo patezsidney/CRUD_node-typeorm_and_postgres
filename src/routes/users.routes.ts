@@ -4,9 +4,9 @@ import {
   createUser,
   getAllUsers,
   getUserProfile,
+  updateUser,
 } from '../controllers';
-import { createUserShape } from '../models';
-import loginUserShape from '../models/loginUser.shape';
+import { createUserShape, loginUserShape, updateUserShape } from '../models';
 import {
   validateShape,
   authenticateUser,
@@ -23,5 +23,13 @@ usersRoute.get('', authenticateUser, getUser, verifyAdmPermission, getAllUsers);
 usersRoute.post('/login', validateShape(loginUserShape), loginUser);
 
 usersRoute.get('/profile', authenticateUser, getUser, getUserProfile);
+
+usersRoute.patch(
+  '/:uuid',
+  validateShape(updateUserShape),
+  authenticateUser,
+  getUser,
+  updateUser
+);
 
 export default usersRoute;
