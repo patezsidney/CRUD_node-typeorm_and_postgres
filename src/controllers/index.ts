@@ -1,5 +1,5 @@
 import getAllUsers from './getAllUsers.controller';
 import createUser from './createUser.controller';
-import authenticateUser from './authenticateUser.controller';
+import loginUser from './loginUser.controller';
 
-export { getAllUsers, createUser, authenticateUser };
+export { getAllUsers, createUser, loginUser };

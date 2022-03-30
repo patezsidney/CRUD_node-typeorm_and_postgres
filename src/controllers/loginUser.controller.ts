@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { jwtConfigs } from '../configs';
 
-const authenticateUser = async (req: Request, res: Response) => {
+const loginUser = async (req: Request, res: Response) => {
   const { email, password } = req.validated;
 
   const user = await new UserRepository().retrieveUserByEmail(email);
@@ -28,4 +28,4 @@ const authenticateUser = async (req: Request, res: Response) => {
   return res.status(200).json({ token });
 };
 
-export default authenticateUser;
+export default loginUser;
