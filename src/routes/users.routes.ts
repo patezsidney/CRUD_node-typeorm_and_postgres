@@ -5,6 +5,7 @@ import {
   getAllUsers,
   getUserProfile,
   updateUser,
+  deleteUser,
 } from '../controllers';
 import { createUserShape, loginUserShape, updateUserShape } from '../models';
 import {
@@ -31,5 +32,7 @@ usersRoute.patch(
   getUser,
   updateUser
 );
+
+usersRoute.delete('/:uuid', authenticateUser, getUser, deleteUser);
 
 export default usersRoute;
