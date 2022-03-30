@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
-import { UserRepository } from '../repositories';
+import { serializeUser } from '../services';
 
 const getUserProfile = async (req: Request, res: Response) => {
-  return res.status(200).json(req.user);
+  const response = serializeUser(req.user);
+  return res.status(200).json(response);
 };
 
 export default getUserProfile;
